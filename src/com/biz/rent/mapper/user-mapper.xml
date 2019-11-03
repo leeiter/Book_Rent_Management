@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.biz.rent.dao.UserDao">
+	 <select id="getMaxUCode" resultType="String">
+ 		SELECT
+   			MAX(u_code)
+		FROM tbl_users
+ 	</select>
+	<select id="selectAll" resultType="UserDTO">
+  		SELECT * FROM tbl_users
+  	</select>
+ 	<select id="findById" resultType="UserDTO">
+ 		SELECT
+			U_CODE,
+			U_NAME,
+			U_TEL,
+			U_ADDR
+		FROM tbl_users
+		WHERE U_CODE = #{u_code}
+ 	</select>
+ 	<insert id="insert" parameterType="UserDTO">
+ 		INSERT INTO tbl_users (
+			U_CODE,
+			U_NAME,
+			U_TEL,
+			U_ADDR
+		) VALUES (
+			#{u_code, jdbcType = VARCHAR},
+			#{u_name, jdbcType = VARCHAR},
+			#{u_tel, jdbcType = VARCHAR},
+			#{u_addr, jdbcType = VARCHAR}
+		)
+ 	</insert>
+ 	<update id="update" parameterType="UserDTO">
+ 		UPDATE tbl_users SET
+			U_CODE = #{u_code, jdbcType = VARCHAR},
+			U_NAME = #{u_name, jdbcType = VARCHAR},
+			U_TEL = #{u_tel, jdbcType = VARCHAR},
+			U_ADDR = #{u_addr, jdbcType = VARCHAR}
+ 		WHERE U_CODE = #{u_code}
+ 	</update>
+ 	<delete id="delete" parameterType="UserDTO">
+ 		DELETE FROM tbl_users
+ 		WHERE U_CODE = #{u_code}
+ 	</delete>
+	<select id="findBySName" resultType="UserDTO">
+ 		SELECT
+			U_CODE,
+			U_NAME,
+			U_TEL,
+			U_ADDR
+		FROM tbl_users
+		WHERE U_NAME = #{u_name}
+ 	</select>
+ 	<select id="findByName" resultType="UserDTO">
+ 		SELECT
+			U_CODE,
+			U_NAME,
+			U_TEL,
+			U_ADDR
+		FROM tbl_users
+		WHERE U_NAME LIKE '%' || #{u_name} || '%'
+ 	</select>
+ 	<select id="findBySTel" resultType="UserDTO">
+ 		SELECT
+			U_CODE,
+			U_NAME,
+			U_TEL,
+			U_ADDR
+		FROM tbl_users
+		WHERE U_TEL = #{u_tel}
+ 	</select>
+ 	<select id="findByTel" resultType="UserDTO">
+ 		SELECT
+			U_CODE,
+			U_NAME,
+			U_TEL,
+			U_ADDR
+		FROM tbl_users
+		WHERE U_TEL LIKE '%' || #{u_tel} || '%'
+ 	</select>
+</mapper>

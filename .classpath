@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="D:/jdk_3rd/lombok-1.18.10.jar"/>
+	<classpathentry kind="lib" path="D:/jdk_3rd/mybatis-3.5.3.jar"/>
+	<classpathentry kind="lib" path="D:/jdk_3rd/mysql-connector-java-5.1.48.jar"/>
+	<classpathentry kind="lib" path="D:/jdk_3rd/ojdbc6-11.1.0.6.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
